@@ -187,12 +187,14 @@ newest_time = None # 给一个初始默认值
 if enable_check:
     print("正在执行初始化同步...")
     newest_time = init_sync.check_data(init_sync.API_URL, init_sync.SAVE_DIR, init_sync.SAVE_FILE_NAME)
+    update_thread = threading.Thread(target=update_price_data, args=(newest_time,))
 else:
     print("跳过初始化同步，使用默认值")
+    update_thread = threading.Thread(target=update_price_data)
 
 # 启动后台线程
 # 无论是否同步，都传入 newest_time (如果同步没跑，它就是 None)
-update_thread = threading.Thread(target=update_price_data, args=(newest_time,))
+# update_thread = threading.Thread(target=update_price_data, args=(newest_time,))
 update_thread.daemon = True
 update_thread.start()
 
