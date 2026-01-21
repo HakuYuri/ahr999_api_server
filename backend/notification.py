@@ -9,7 +9,7 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s -
 logger = logging.getLogger(__name__)
 
 # Your public server address here
-SERVER_URL = "https://xxx.xxx.xxx"
+SERVER_URL = "https://ahr999.3geeks.top"
 
 MESSAGE_TEMPLATE = {
     "price_change": lambda price_change_str, price, ahr999: {
